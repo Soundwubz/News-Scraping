@@ -1,1 +1,36 @@
-<h1>hello world</h1>
+<h1>Articles</h1>
+
+<div class="container">
+    {{#each dbArticle}}
+        <div class="row">
+            <div class="col">
+                <a href="{{link}}">
+                    <h1 class="display-4">{{title}}</h1>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <button class="btn btn-primary" id="viewComments" data-art-id="{{_id}}">View Comments</button>
+            </div>
+            <div class="col-7">
+                {{!-- text-area for comments --}}
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Comment</span>
+                    </div>
+                    <textarea class="form-control" aria-label="Comment" id="comment" data-art-id="{{_id}}" style="height: 40px;"></textarea>
+                </div>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-secondary" id="commentSubmit">Submit</button>
+            </div>
+        </div>
+        <div class="row mb-5 pb-5">
+            <div class="col">
+                <div class="comment-container">
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
